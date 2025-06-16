@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, Users, MapPin, CheckCircle, Mail, Phone, User, GraduationCap, Smartphone, Download } from 'lucide-react';
+import { Calendar, Clock, Users, MapPin, CheckCircle, Mail, Phone, User, GraduationCap, Smartphone, Download, IndianRupee } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -101,6 +101,7 @@ const Index = () => {
               <p className="text-blue-700">Date: {seminarDate.toLocaleDateString()}</p>
               <p className="text-blue-700">Time: 10:00 AM - 12:00 PM</p>
               <p className="text-blue-700">Mode: Online (Zoom)</p>
+              <p className="text-blue-700 font-semibold">Registration Fee: ₹99</p>
             </div>
             <Button 
               onClick={() => setIsRegistered(false)} 
@@ -128,8 +129,17 @@ const Index = () => {
                 <span className="block text-yellow-300">for Exam Success</span>
               </h1>
               <p className="text-xl lg:text-2xl text-blue-100">
-                Join our free online seminar to learn proven exam preparation strategies that top students use
+                Join our online seminar to learn proven exam preparation strategies that top students use
               </p>
+              
+              {/* Registration Cost Banner */}
+              <div className="bg-yellow-400 text-blue-900 px-6 py-3 rounded-xl inline-block">
+                <div className="flex items-center space-x-2">
+                  <IndianRupee className="w-6 h-6" />
+                  <span className="text-2xl font-bold">99 Only</span>
+                  <span className="text-sm">Registration Fee</span>
+                </div>
+              </div>
               
               {/* Event Details */}
               <div className="grid sm:grid-cols-2 gap-4">
@@ -187,7 +197,7 @@ const Index = () => {
                 size="lg"
                 className="w-full bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold text-xl py-6 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                REGISTER NOW - FREE!
+                REGISTER NOW - ₹99 Only!
               </Button>
             </div>
           </div>
@@ -337,9 +347,18 @@ const Index = () => {
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                 Secure Your Spot
               </h2>
-              <p className="text-xl text-gray-600">
-                Registration is completely free. Limited seats available!
-              </p>
+              <div className="space-y-2">
+                <div className="bg-gradient-to-r from-yellow-400 to-orange-400 text-blue-900 px-8 py-4 rounded-xl inline-block mb-4">
+                  <div className="flex items-center space-x-3">
+                    <IndianRupee className="w-8 h-8" />
+                    <span className="text-3xl font-bold">99</span>
+                    <span className="text-lg">Registration Fee</span>
+                  </div>
+                </div>
+                <p className="text-xl text-gray-600">
+                  Limited seats available! Secure your spot today.
+                </p>
+              </div>
             </div>
 
             <Card className="p-8 shadow-lg">
@@ -424,7 +443,7 @@ const Index = () => {
                 </div>
 
                 <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">
-                  Register Now - It's Free!
+                  Register Now - Pay ₹99
                 </Button>
               </form>
             </Card>
