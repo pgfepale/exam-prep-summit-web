@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, Users, MapPin, CheckCircle, Mail, Phone, User, GraduationCap } from 'lucide-react';
+import { Calendar, Clock, Users, MapPin, CheckCircle, Mail, Phone, User, GraduationCap, Smartphone, Download } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -73,6 +73,10 @@ const Index = () => {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const scrollToRegistration = () => {
+    document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   if (isRegistered) {
@@ -163,7 +167,7 @@ const Index = () => {
             {/* Countdown Timer */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold mb-6">Event Starts In</h3>
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-4 gap-4 mb-8">
                 {[
                   { label: 'Days', value: timeLeft.days },
                   { label: 'Hours', value: timeLeft.hours },
@@ -175,6 +179,79 @@ const Index = () => {
                     <div className="text-sm text-blue-600">{item.label}</div>
                   </div>
                 ))}
+              </div>
+              
+              {/* Register Now Button */}
+              <Button 
+                onClick={scrollToRegistration}
+                size="lg"
+                className="w-full bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold text-xl py-6 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+              >
+                REGISTER NOW - FREE!
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mshala App Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center">
+                  <Smartphone className="w-8 h-8 text-purple-600" />
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-bold">Mshala</h2>
+              </div>
+              
+              <h3 className="text-2xl lg:text-3xl font-semibold text-purple-100">
+                Your Ultimate Study Companion
+              </h3>
+              
+              <p className="text-lg lg:text-xl text-purple-100">
+                Access thousands of practice questions, mock tests, and study materials for JEE, NEET, and competitive exams. Study anytime, anywhere with our mobile app.
+              </p>
+              
+              <div className="space-y-4">
+                {[
+                  'Practice questions with detailed solutions',
+                  'Full-length mock tests',
+                  'Performance analytics and insights',
+                  'Offline study mode',
+                  'Expert video explanations'
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-purple-200 flex-shrink-0" />
+                    <p className="text-purple-100">{feature}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="text-center space-y-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8">
+                <div className="w-32 h-32 bg-gradient-to-br from-white to-purple-100 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                  <Smartphone className="w-16 h-16 text-purple-600" />
+                </div>
+                
+                <h4 className="text-2xl font-bold mb-4">Download Mshala Now</h4>
+                <p className="text-purple-100 mb-6">
+                  Join over 1 million students who trust Mshala for their exam preparation
+                </p>
+                
+                <Button 
+                  size="lg"
+                  className="w-full bg-white hover:bg-gray-100 text-purple-600 font-bold text-xl py-6 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+                >
+                  <Download className="w-6 h-6 mr-3" />
+                  DOWNLOAD NOW - FREE
+                </Button>
+                
+                <p className="text-sm text-purple-200 mt-4">
+                  Available on Google Play Store & App Store
+                </p>
               </div>
             </div>
           </div>
